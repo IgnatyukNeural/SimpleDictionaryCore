@@ -1,0 +1,43 @@
+﻿@model SimpleDictionary.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-wrapper form-absolute-center" style="width: 240px; margin:0 auto;">
+    <div class="row">
+        <form asp-controller="Account" asp-action="Login" method="post" class="col s12">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input asp-for="Email" />
+                    <label asp-for="Email"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input asp-for="Password" />
+                    <label asp-for="Password"></label>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="input-field" col s12>
+                    <p>
+                        <label asp-for="Remember">
+                            <input asp-for="Remember" />
+                            <span>Remember me</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <input type="submit" class="btn" />
+            </div>
+            <div class="row text-center">
+                <a asp-controller="Account" asp-action="ForgotPassword">Don't remember password?</a>
+            </div>
+        </form>
+    </div>
+
+</div>

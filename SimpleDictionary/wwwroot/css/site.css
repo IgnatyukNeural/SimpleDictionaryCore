@@ -1,0 +1,78 @@
+﻿.wrapper, .page-footer {
+    width: 1200px;
+    margin: auto;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.wrapper-medium {
+    width: 980px;
+    margin: auto;
+}
+
+nav, .page-footer {
+    background-color: forestgreen;
+}
+
+.btn {
+    background-color: red;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+}
+
+.form-absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navbar-content {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+
+.navbar-logo {
+    font-size: 30px;
+}
+
+.navbar-content button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-create {
+    background-color: limegreen;
+}
+
+.text-danger {
+    color: red;
+}
+
+textarea:focus {
+    border: none;
+}
+

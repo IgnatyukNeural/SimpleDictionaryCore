@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SimpleDictionary</title>
+    <link href="~/css/materialize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <a class="navbar-logo" asp-controller="Feed" asp-action="Index">Simple Dictionary</a>
+            </div>
+            <div class="search">
+                <form asp-controller="Definition" asp-action="Search" method="get">
+                    <div class="search-container">
+                       <input type="text" name="hashtag" id="hashtag" style="width: 80%;" />
+                       <button type="submit">
+                           <i class="material-icons">search</i>
+                       </button>
+                    </div>
+                </form>
+            </div>
+            <div class="login-wrapper">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Account" asp-action="Profile" asp-route-user="@User.Identity.Name" style="margin-right: 5px;">@User.Identity.Name</a>
+                    <a asp-controller="Account" asp-action="SignOut">Sign out</a>
+                    <a asp-controller="Definition" asp-action="Create" class="btn btn-create">New</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" style="margin-right: 5px;">Sign in</a>
+                    <a asp-controller="Account" asp-action="Register">Sign up</a>
+                    <a asp-controller="Definition" asp-action="Create" class="btn btn-create">New</a>
+                }
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer text-center">
+        <div class="row">
+            <div class="col s12">
+                &copy; 2020 - SimpleDictionary - <a href="https://github.com/IgnatyukNeural">GitHub</a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/materialize.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

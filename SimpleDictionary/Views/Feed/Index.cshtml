@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SimpleDictionary.Models.DataModels.Definition>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    @if (Model.Count() == 0)
+    {
+        <p>There are no words in the dictionary yet. But we're working on it</p>
+        <p>Be first to add your own definition <a asp-controller="Definition" asp-action="Create" class="btn btn-success">+</a></p>
+    }
+    else
+    {
+        @foreach (var definition in Model)
+        { 
+            <div class="col s12 m6 l6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">@definition.Name</span>
+                        <p>@definition.Description</p>
+                        <hr />
+                        <pre>@definition.Example</pre>
+                        <div class="hashtags">
+                            @foreach(var hashtag in definition.Hashtags)
+                            {
+                                <a asp-controller="Definition" asp-action="Search" asp-route-hashtag="@hashtag.Name">@hashtag.Name</a>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a asp-controller="Definition" asp-action="UserDefinitions" asp-route-userId="@definition.UserId">By @definition.AuthorUsername</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+
